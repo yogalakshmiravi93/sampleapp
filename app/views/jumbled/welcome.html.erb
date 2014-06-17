@@ -1,0 +1,8 @@
+<div class="center hero-unit">
+<h2>Lets know your World Of Cartoon!!!!!</h2>
+<% if signed_in? %>
+<h1><%= link_to "Next", fruit_path  ,class:"btn btn-large btn-primary" %> </h1>
+<% else %>
+<h4> Please Sign-In to continue </h4>
+<% end %>
+</div>

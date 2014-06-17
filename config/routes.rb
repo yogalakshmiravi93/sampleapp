@@ -1,6 +1,22 @@
 Sample::Application.routes.draw do
 resources :users
+resources :jumbled
+resources :newwordstable
 resources :sessions, only: [:new, :create, :destroy]
+match 'showall', to: 'jumbled#showall'
+match 'editword', to: 'jumbled#edit'
+match 'saveword', to:'newwordstable#save'
+match 'savewordall', to:'newwordstable#saveall'
+match'newword' , to: 'jumbled#addword'
+match 'newjumbled', to: 'jumbled#new'
+match 'highscore_veg', to: 'users#highscore_veg'
+match 'game_over_veg', to: 'jumbled#game_over_veg'
+match 'highscore', to: 'users#highscore'
+match 'game_over_fruit', to: 'jumbled#game_over_fruit'
+match '/welcome', to: 'jumbled#welcome'
+match '/welcome_veg', to: 'jumbled#welcome_veg'
+match '/fruit', to: 'jumbled#fruit'
+match '/vegetable', to: 'jumbled#vegetable'
  match '/users', to: 'users#index'
  match '/edit_user', to: 'users#edit'
   match '/signup',  to: 'users#new'

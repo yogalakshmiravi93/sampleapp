@@ -11,7 +11,36 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140612100315) do
+ActiveRecord::Schema.define(:version => 20140617044122) do
+
+  create_table "jumbleds", :force => true do |t|
+    t.string   "category"
+    t.string   "ans"
+    t.string   "hint"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "newwordstables", :force => true do |t|
+    t.string   "category"
+    t.string   "ans"
+    t.string   "hint"
+    t.boolean  "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "newwordstables", ["ans"], :name => "index_newwordstables_on_ans", :unique => true
+
+  create_table "scorecards", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "fruit"
+    t.integer  "vegetable"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "scorecards", ["user_id"], :name => "index_scorecards_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"

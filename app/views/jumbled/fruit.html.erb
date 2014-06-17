@@ -1,0 +1,28 @@
+<script>
+function displayHint(hint) {
+    document.getElementById("hint").innerHTML = hint ;
+}
+function displayQuestion(question)
+{
+	 document.getElementById("questionnaire").innerHTML.reload() ;
+}
+</script> 	
+<body>
+<h1> Cartoons </h1>
+  <div id="questionnaire">
+
+  <br/>  
+   <%= render 'shared/question' %>
+   <br/>
+  </div>
+   <%= form_for :jumbled, :url => {:action => :fruit} do |f| %>
+
+      <%= f.label :ans %>
+      <%= f.text_field :ans , placeholder:"Your Answer here"%>
+
+    <%= f.submit "Next", class: "btn btn-large btn-primary" %>
+  <% end %>
+  <br/>
+  <br/>
+<%= @score %>
+<body>	

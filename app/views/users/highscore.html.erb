@@ -1,0 +1,25 @@
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#">Cartoon</a></li>
+    <li><%= link_to "Cities & Places" , highscore_veg_path %></li>
+</ul>
+<table class="table table-striped">
+<thead>
+	<tr>
+		<th>Name</th>
+		<th>Cartoon</th>
+	</tr>
+</thead>
+<% ( @users.sort_by! &:fruit ) %>
+<% @users.reverse.each do |s| %>
+<% if !s.nil? && !(s[:fruit]==0) %>
+<tr>
+<td><% s_user=User.find(s.user_id) %><%= s_user[:name] %></td>
+<td><%= s[:fruit] %></td>
+</tr>
+<% end %>
+<% end %>
+</table>
+<% if !signed_in? %>
+<h3>
+<%= link_to "Sign up to play!!!!" , signup_path %></h3>
+<% end %>

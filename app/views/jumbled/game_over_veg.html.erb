@@ -1,0 +1,13 @@
+<h3>Your Final Score : <%= @s_user %></h3><br/>
+
+<% @s=current_user.scorecard %>
+<% if !@hscore.nil? %>
+<h2> Yippie...... Yoou have set your Highscore..... </h2>
+<% end %>
+<% if !@s.nil? %>
+<% if @s[:vegetable]>@s_user %>
+<h3>Your Highscore is <%= @s[:vegetable] %> </h3><br/>
+<% end %>
+<% end %>
+<h3>Thanks For Playing!!!</h3> <br/>
+<h4><%= link_to "Add Your Own Word here...",  newjumbled_path %></h4>

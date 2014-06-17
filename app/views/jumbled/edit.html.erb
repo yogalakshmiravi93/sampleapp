@@ -1,0 +1,19 @@
+
+<% provide(:title, "Edit word") %>
+<h1>Update your profile</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+     <%= form_for :jumbled, :url => {:action => :update} do |f| %>
+      <%= f.label :category %>
+      <%= f.select(:category,[['cartoon'],['places & cities']]) %>
+
+      <%= f.label :ans %>
+      <%= f.text_field :ans %>
+
+      <%= f.label :hint %>
+ <%= f.text_field :hint %>
+      <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
+   <% end %>
+  </div>
+</div>

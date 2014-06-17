@@ -3,13 +3,21 @@ class UsersController < ApplicationController
   before_filter :correct_user,   only: [:edit, :update]
    before_filter :admin_user,     only: :destroy
   def destroy
-    User.find(params[:id]).destroy
+    user=User.find(params[:id])
+    if user.id==1 && user.admin?
+      flash[:error]="cannot delete admin"
+    else
+      User.find(params[:id]).destroy
     flash[:success] = "User destroyed."
+  end
     redirect_to users_url
   end
   def show
     @user = User.find(params[:id])
     
+  end
+  def highscore
+    @users=Scorecard.all
   end
   def update
     @user = User.find(params[:id])
@@ -18,6 +26,9 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
+  end
+  def highscore_veg
+     @users=Scorecard.all
   end
 def edit
 @user = User.find(params[:id])
@@ -34,7 +45,8 @@ def index
    def create
     @user = User.new(params[:user])
     if @user.save
-     flash[:success] = "Welcome to the Sample App!"
+      sign_in @user
+     flash[:success] = "Sign-up successful...!"
      redirect_to @user
     else
       render 'new'

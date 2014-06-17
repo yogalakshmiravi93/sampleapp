@@ -9,3 +9,29 @@
     </section>
   </aside>
 </div>
+<% if current_user==@user %><b>
+Select any one the categories below and start unjumbling...!!</b>
+<div class="column hero-unit">
+	<ul>
+	<li><%= link_to "Cartoon",  welcome_path %></li><br/>
+	<li><%= link_to "Places & Cities", welcome_veg_path %></li><br/>
+	</ul>
+</div>
+<% end %>
+<% s=@user.scorecard %>
+<% if !s.nil? %>
+<b><%= @user[:name].titlecase %>'s Highscores......!!<br/></b>
+<table class="table table-striped">
+<thead>
+  <tr>
+    <th>Cartoon</th>
+    <th>Places & Cities</th>
+  </tr>
+</thead>
+<tr>
+<td><% if s[:fruit]!= 0 %><%= s[:fruit] %><% end %></td>
+<td><% if s[:vegetable]!= 0 %><%= s[:vegetable] %><% end %></td>
+</tr>
+<% end %>
+</table>
+

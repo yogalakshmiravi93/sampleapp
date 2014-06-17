@@ -1,0 +1,8 @@
+ <div class="center hero-unit">
+<h2>Click on Next to take a tour!!!!!</h2>
+<% if signed_in? %>
+<h1><%= link_to "Next", vegetable_path  ,class:"btn btn-large btn-primary" %> </h1>
+<% else %>
+<h4> Please Sign-In to continue </h4>
+<% end %>
+</div>

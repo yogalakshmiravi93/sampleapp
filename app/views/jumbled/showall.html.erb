@@ -1,0 +1,18 @@
+<% provide(:title, 'All words') %>
+<h1>All words</h1>
+
+<% if @jumbled.length>0 %>
+ <%= will_paginate %>
+<ul class="users">
+Word-Category-Hint
+  <% @jumbled.each do |word| %>
+    <li>
+      <%= word[:ans] %>-<% if word[:category]=="fruit"%>Cartoon<% end %><% if word[:category]=="vegetable"%>Places & Cities<% end %>-<%= word[:hint] %>
+      |<%= link_to "delete", word, method: :delete, data: { confirm: "You sure?" } %>
+    </li>
+  <% end %>
+</ul>
+
+<% else %>
+All requests done
+<% end %>
