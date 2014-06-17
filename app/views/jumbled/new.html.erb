@@ -6,13 +6,13 @@
       <%= f.label :category %>
       <%= f.select(:category,[['cartoon'],['places & cities']]) %>
 
-      <%= f.label :ans %>
-      <%= f.text_field :ans %>
+      <%= f.label :ans ,"Word" %>
+      <%= f.text_field :ans , placeholder: "The Correct Word..." %>
 
       <%= f.label :hint %>
-      <%= f.text_field :hint %>
+      <%= f.text_field :hint , placeholder: "Your Hint..." %>
 
       <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
-    <% end %>
+    <% end %> 
   </div>
 </div>

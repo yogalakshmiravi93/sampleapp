@@ -24,13 +24,13 @@ Select any one the categories below and start unjumbling...!!</b>
 <table class="table table-striped">
 <thead>
   <tr>
-    <th>Cartoon</th>
-    <th>Places & Cities</th>
+   <% if s[:fruit]!= 0 %> <th>Cartoon</th><% end %>
+    <% if s[:vegetable]!= 0 %><th>Places & Cities</th><% end %>
   </tr>
 </thead>
 <tr>
-<td><% if s[:fruit]!= 0 %><%= s[:fruit] %><% end %></td>
-<td><% if s[:vegetable]!= 0 %><%= s[:vegetable] %><% end %></td>
+<% if s[:fruit]!= 0 %><td><%= s[:fruit] %></td><% end %>
+<% if s[:vegetable]!= 0 %><td><%= s[:vegetable] %></td><% end %>
 </tr>
 <% end %>
 </table>

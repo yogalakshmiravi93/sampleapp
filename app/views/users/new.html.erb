@@ -6,16 +6,16 @@
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages' %>
       <%= f.label :name %>
-      <%= f.text_field :name %>
+      <%= f.text_field :name , placeholder:"*Your name..." %>
 
       <%= f.label :email %>
-      <%= f.text_field :email %>
+      <%= f.text_field :email , placeholder:"*Your email..."%>
 
       <%= f.label :password %>
-      <%= f.password_field :password %>
+      <%= f.password_field :password, placeholder:"*Minimum of 6 characters" %>
 
       <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation %>
+      <%= f.password_field :password_confirmation , placeholder:"*Re-enter your password..."%>
 
       <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
     <% end %>

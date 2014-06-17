@@ -20,8 +20,12 @@ class JumbledController < ApplicationController
 			@jumbled.update_attributes(category:"vegetable")
 		end
 	end	
-		@jumbled.save
+		if @jumbled.save
 		redirect_to root_path
+		else
+			flash[:error]="Invalid entries"
+			redirect_to root_path
+		end
 	end
 	def addword
 		@jumbled = Newwordstable.paginate(page: params[:page])
@@ -69,6 +73,7 @@ class JumbledController < ApplicationController
 		update_value
 		session[:current]+=1	
 		end
+		@jumbled=Jumbled.new
 	end
 
 	def vegetable
@@ -92,6 +97,7 @@ class JumbledController < ApplicationController
 		update_value
 		session[:current]+=1	
 		end
+		@jumbled=Jumbled.new
 	end
 	def game_over_fruit
 	if !current_user.scorecard.nil?
